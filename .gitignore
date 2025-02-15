@@ -1,5 +1,7 @@
 #IntelliJ
 .idea/
+
+#Maven
 target/
 
 #Mac OS
@@ -7,3 +9,6 @@ target/
 
 #Tomcat
 .smarttomcat/
+
+#SDK man
+.sdkmanrc
