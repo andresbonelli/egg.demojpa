@@ -1,6 +1,9 @@
 #IntelliJ
-.idea
-target
+.idea/
+target/
 
 #Mac OS
 .DS_Store
+
+#Tomcat
+.smarttomcat/
