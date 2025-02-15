@@ -13,6 +13,10 @@ public class ClienteService {
         this.clienteDAO = new ClienteDAO();
     }
 
+    public List<Cliente> listarClientes() {
+        return clienteDAO.listarTodos();
+    }
+
     public Cliente buscarClientePorCodigo(int codigoCliente) {
         return clienteDAO.buscarPorCodigo(codigoCliente);
     }

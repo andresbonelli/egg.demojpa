@@ -12,7 +12,9 @@ public class Application {
     public static void main(String[] args) {
         OficinaService oficinaServicio = new OficinaService();
         ClienteService clienteServicio = new ClienteService();
-        List<Cliente> clientes = clienteServicio.buscarClientePorNombre("jardin");
+
+        /*List<Cliente> clientes = clienteServicio.buscarClientePorNombre("jardin");*/
+        List<Cliente> clientes = clienteServicio.listarClientes();
         for (Cliente c : clientes) {
             System.out.println(c.getNombreCliente());
         }

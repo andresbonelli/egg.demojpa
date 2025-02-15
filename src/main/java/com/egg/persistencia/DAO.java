@@ -3,13 +3,32 @@ package com.egg.persistencia;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public abstract class DAO<T> {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ViveroPU");
+    private final Class<T> clase;
+
+    @SuppressWarnings("unchecked")
+    public DAO() {
+        this.clase = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
 
     protected EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+
+    public List<T> listarTodos() {
+        EntityManager em = getEntityManager();
+        try {
+            return em
+                    .createQuery("FROM " + clase.getSimpleName(), clase)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     public void guardar(T entity) {
