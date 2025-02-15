@@ -1,22 +1,18 @@
 package com.egg;
 
-import com.egg.entidades.Cliente;
-import com.egg.servicio.ClienteService;
 import com.egg.servicio.OficinaService;
-
-import java.util.List;
 
 
 public class Application {
 
     public static void main(String[] args) {
         OficinaService oficinaServicio = new OficinaService();
-        ClienteService clienteServicio = new ClienteService();
-        List<Cliente> clientes = clienteServicio.buscarClientePorNombre("jardin");
+        //ClienteService clienteServicio = new ClienteService(new ClienteDAO());
+       /* List<Cliente> clientes = clienteServicio.buscarClientePorNombre("jardin");
         for (Cliente c : clientes) {
             System.out.println(c.getNombreCliente());
         }
-        System.out.println(clienteServicio.buscarClientePorCodigo(9999).getNombreCliente());
+        System.out.println(clienteServicio.buscarClientePorCodigo(9999).getNombreCliente());*/
        /* clienteServicio.crearCliente(
                 9998,
                 "Cliente 2",

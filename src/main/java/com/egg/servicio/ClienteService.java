@@ -1,28 +1,18 @@
 package com.egg.servicio;
 
 import com.egg.entidades.Cliente;
-import com.egg.persistencia.ClienteDAO;
 
 import java.util.List;
 
-public class ClienteService {
+public interface ClienteService {
 
-    private final ClienteDAO clienteDAO;
+    List<Cliente> listarClientes();
 
-    public ClienteService() {
-        this.clienteDAO = new ClienteDAO();
-    }
+    Cliente buscarClientePorCodigo(int codigoCliente);
 
-    public Cliente buscarClientePorCodigo(int codigoCliente) {
-        return clienteDAO.buscarPorCodigo(codigoCliente);
-    }
+   List<Cliente> buscarClientePorNombre(String nombreCliente);
 
-    public List<Cliente> buscarClientePorNombre(String nombreCliente) {
-        return clienteDAO.buscarPorNombre(nombreCliente);
-    }
-
-
-    public void crearCliente(int codigoCliente,
+    void crearCliente(int codigoCliente,
                              String nombreCliente,
                              String nombreContacto,
                              String apellidoContacto,
@@ -32,24 +22,5 @@ public class ClienteService {
                              String region,
                              String telefono,
                              String fax
-                             ) {
-        try {
-            Cliente clienteNuevo = new Cliente();
-            clienteNuevo.setCodigoCliente(codigoCliente);
-            clienteNuevo.setNombreCliente(nombreCliente);
-            clienteNuevo.setNombreContacto(nombreContacto);
-            clienteNuevo.setApellidoContacto(apellidoContacto);
-            clienteNuevo.setCiudad(ciudad);
-            clienteNuevo.setCodigoPostal(codigoPostal);
-            clienteNuevo.setPais(pais);
-            clienteNuevo.setRegion(region);
-            clienteNuevo.setTelefono(telefono);
-            clienteNuevo.setFax(fax);
-
-            clienteDAO.guardar(clienteNuevo);
-
-        } catch (Exception e) {
-            System.out.println(e.toString() + "No se guardo el nuevo cliente de manera correcta");
-        }
-    }
+    );
 }

@@ -12,6 +12,15 @@ public abstract class DAO<T> {
         return emf.createEntityManager();
     }
 
+    public List<T> listar(Class<T> clase) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.createQuery("SELECT c FROM " + clase.getSimpleName() + " c", clase).getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
     public void guardar(T entity) {
         EntityManager em = getEntityManager();
         try {
@@ -27,11 +36,8 @@ public abstract class DAO<T> {
     }
 
     public T buscarPorId(Class<T> clase, int id) {
-        EntityManager em = getEntityManager();
-        try {
+        try (EntityManager em = getEntityManager()) {
             return em.find(clase, id);
-        } finally {
-            em.close();
         }
     }
 

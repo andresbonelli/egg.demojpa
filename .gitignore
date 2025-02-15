@@ -1,6 +1,12 @@
 #IntelliJ
-.idea
-target
+.idea/
+
+#Maven
+target/
+
+#Tomcat
+.smarttomcat/
+
 
 #Mac OS
 .DS_Store
