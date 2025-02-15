@@ -6,7 +6,7 @@ import com.egg.servicio.OficinaService;
 public class Application {
 
     public static void main(String[] args) {
-        OficinaService oficinaServicio = new OficinaService();
+        //OficinaService oficinaServicio = new OficinaService();
         //ClienteService clienteServicio = new ClienteService(new ClienteDAO());
        /* List<Cliente> clientes = clienteServicio.buscarClientePorNombre("jardin");
         for (Cliente c : clientes) {
