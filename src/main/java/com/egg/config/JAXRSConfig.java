@@ -2,7 +2,8 @@ package com.egg.config;
 
 import javax.ws.rs.ApplicationPath;
 
-import com.egg.servicio.ClienteService;
+import com.egg.rs.ClienteRS;
+import com.egg.servicio.ClienteServiceImpl;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -16,7 +17,8 @@ public class JAXRSConfig extends ResourceConfig {
         register(new AbstractBinder() {
             @Override
             protected void configure() {
-                bind(ClienteService.class).to(ClienteService.class);
+                bind(ClienteServiceImpl.class).to(ClienteServiceImpl.class);
+                bind(ClienteRS.class).to(ClienteRS.class);
             }
         });
     }

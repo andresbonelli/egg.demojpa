@@ -3,18 +3,16 @@ package com.egg.servicio;
 import com.egg.entidades.Cliente;
 import com.egg.persistencia.ClienteDAO;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
 
 @Singleton
-public class ClienteServiceImpl implements ClienteService{
+public class ClienteServiceImpl {
 
     private final ClienteDAO clienteDAO;
 
-    @Inject
-    public ClienteServiceImpl(ClienteDAO clienteDAO) {
-        this.clienteDAO = clienteDAO;
+    public ClienteServiceImpl() {
+        this.clienteDAO = new ClienteDAO();
     }
 
     public List<Cliente> listarClientes() {

@@ -4,7 +4,7 @@
          https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
          version="6.1">
 
-    <display-name>MyApp</display-name>
+    <display-name>DemoJpa</display-name>
 
     <servlet>
         <servlet-name>Jersey REST API</servlet-name>
