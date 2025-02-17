@@ -21,11 +21,14 @@ public abstract class DAO<T> {
     }
 
     public List<T> listar() {
-        EntityManager em = getEntityManager();
-        try {
-            return em.createQuery("SELECT c FROM " + clase.getSimpleName() + " c", clase).getResultList();
-        } finally {
-            em.close();
+        try (EntityManager em = getEntityManager()) {
+            return em.createQuery("FROM " + clase.getSimpleName(), clase).getResultList();
+        }
+    }
+
+    public T buscarPorId(int id) {
+        try (EntityManager em = getEntityManager()) {
+            return em.find(clase, id);
         }
     }
 
@@ -40,12 +43,6 @@ public abstract class DAO<T> {
             throw e;
         } finally {
             em.close();
-        }
-    }
-
-    public T buscarPorId(int id) {
-        try (EntityManager em = getEntityManager()) {
-            return em.find(clase, id);
         }
     }
 
