@@ -10,6 +10,7 @@ conf/
 logs/
 webapps/
 work/
+temp/
 
 #Mac OS
 .DS_Store
