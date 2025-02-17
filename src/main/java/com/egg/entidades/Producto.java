@@ -34,10 +34,10 @@ public class Producto {
     private String nombre;
 
     @Column(name = "precio_proveedor")
-    private int precioProveedor;
+    private double precioProveedor;
 
     @Column(name = "precio_venta")
-    private int precioVenta;
+    private double precioVenta;
 
     @Column(name = "proveedor")
     private String proveedor;
@@ -105,19 +105,19 @@ public class Producto {
         this.cantidadEnStock = cantidadEnStock;
     }
 
-    public int getPrecioVenta() {
+    public double getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(int precioVenta) {
+    public void setPrecioVenta(double precioVenta) {
         this.precioVenta = precioVenta;
     }
 
-    public int getPrecioProveedor() {
+    public double getPrecioProveedor() {
         return precioProveedor;
     }
 
-    public void setPrecioProveedor(int precioProveedor) {
+    public void setPrecioProveedor(double precioProveedor) {
         this.precioProveedor = precioProveedor;
     }
 
