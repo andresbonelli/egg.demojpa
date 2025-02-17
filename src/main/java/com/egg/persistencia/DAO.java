@@ -3,16 +3,24 @@ package com.egg.persistencia;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public abstract class DAO<T> {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ViveroPU");
+    private final Class<T> clase;
+
+    @SuppressWarnings("unchecked")
+    public DAO() {
+        this.clase = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
 
     protected EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public List<T> listar(Class<T> clase) {
+    public List<T> listar() {
         EntityManager em = getEntityManager();
         try {
             return em.createQuery("SELECT c FROM " + clase.getSimpleName() + " c", clase).getResultList();
@@ -35,7 +43,7 @@ public abstract class DAO<T> {
         }
     }
 
-    public T buscarPorId(Class<T> clase, int id) {
+    public T buscarPorId(int id) {
         try (EntityManager em = getEntityManager()) {
             return em.find(clase, id);
         }

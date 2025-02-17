@@ -16,7 +16,23 @@ public class ClienteServiceImpl {
     }
 
     public List<Cliente> listarClientes() {
-        return clienteDAO.listar(Cliente.class);
+        return clienteDAO.listar();
+    }
+
+    public Cliente buscarClientePorId(int id) {
+        return clienteDAO.buscarPorId(id);
+    }
+
+    public void guardarCliente(Cliente cliente) {
+        clienteDAO.guardar(cliente);
+    }
+
+    public void actualizarCliente(Cliente cliente) {
+        clienteDAO.actualizar(cliente);
+    }
+
+    public void eliminarCliente(Cliente cliente) {
+        clienteDAO.eliminar(cliente);
     }
 
     public Cliente buscarClientePorCodigo(int codigoCliente) {

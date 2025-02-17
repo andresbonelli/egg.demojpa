@@ -3,10 +3,7 @@ package com.egg.rs;
 import com.egg.entidades.Cliente;
 import com.egg.servicio.ClienteServiceImpl;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -25,6 +22,13 @@ public class ClienteRS {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cliente> listarClientes() {
         return clienteServiceImpl.listarClientes();
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Cliente buscarClientePorId(@PathParam("id") int id) {
+        return clienteServiceImpl.buscarClientePorId(id);
     }
 
 }
