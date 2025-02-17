@@ -6,6 +6,10 @@ target/
 
 #Tomcat
 .smarttomcat/
+conf/
+logs/
+webapps/
+work/
 
 #Mac OS
 .DS_Store
