@@ -6,11 +6,7 @@ target/
 
 #Tomcat
 .smarttomcat/
-conf/
-logs/
-webapps/
-work/
-temp/
+tomcat/
 
 #Mac OS
 .DS_Store
